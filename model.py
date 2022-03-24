@@ -121,7 +121,9 @@ b_mask[test_ratings.nonzero()] = 1
 predictions = np.round(b_predictions * b_mask, 10)
 
 # calculate accuracy 
+print("accuracy of model:")
 print(np.average(np.rint(predictions[predictions.nonzero()]) * 2 -1 == test_ratings[predictions.nonzero()]))
 
 # histogram of predictions (from 0 to 1) if 0 then it is very sure it is toxic and 1 it is very sure it is non-toxic and 0.5 if it has no opinion
+print("\nhistogram of confidence:")
 print(np.histogram(predictions[predictions.nonzero()]))
